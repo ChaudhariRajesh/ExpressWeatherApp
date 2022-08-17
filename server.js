@@ -29,9 +29,10 @@ app.post("/",function(req,res){
       const temp_c = weatherData.current.temp_c;
       const location = weatherData.location.name;
       const imageUrl = "https://" + weatherData.current.condition.icon;
+      res.write("<body style='text-align: center'>");
       res.write("<h1>Current Temperature in "+ location +" : " + temp_c + " Celcius.</h1>");
       res.write("<img src=" + imageUrl + " alt='Current weather image'>");
-      res.write("<form action='/tryAgain' method='post'> <button type='submit' name='tryAgain'>Try Again</button> </form>");
+      res.write("<form action='/tryAgain' method='post'> <button type='submit' name='tryAgain'>Try Again</button> </form> </body>");
       res.send();
     });
 
